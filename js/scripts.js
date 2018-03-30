@@ -33,7 +33,6 @@ function oneReplace() {
   oneArray = divisibleArray.slice();
   for (var i = 0; i < oneArray.length; i++) {
     // this sub-loop will check if a number contains the digit "1"
-    // debugger;
     var oneCounter = 0;
     var stringForCounter = "'" + oneArray[i] + "'";
     for (var j = 0; j < stringForCounter.length; j++) {
@@ -52,7 +51,6 @@ function zeroReplace() {
   zeroArray = oneArray.slice();
   for (var i = 0; i < oneArray.length; i++) {
     // this sub-loop will check if a number contains the digit "0"
-    // debugger;
     var zeroCounter = 0;
     var stringForCounter = "'" + oneArray[i] + "'";
     for (var j = 0; j < stringForCounter.length; j++) {
@@ -129,6 +127,12 @@ $(document).ready(function() {
       $(".HAL").slideDown("slow");
       $(".hello").slideDown("fast");
       $(".sorry").slideUp("fast");
+      $(".vegeta").hide();
+      $(".boop").hide();
+    } else if (userInput > 9000) {
+      $(".vegeta").show();
+    } else {
+      $(".boop").show();
     }
   });
   $("button.nameUpdate").click(function() {
