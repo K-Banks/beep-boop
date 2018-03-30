@@ -4,6 +4,7 @@ var countArray = [];
 var divisibleArray = [];
 var oneArray = [];
 var zeroArray = [];
+var stringArrayCounter = 0;
 
 
 // Function to populate array with numbers from 0 to user input
@@ -19,7 +20,7 @@ function divisibleReplace() {
   divisibleArray = countArray.slice();
   for (var i = 0; i < divisibleArray.length; i++) {
     if (countArray[i]%3 === 0 && countArray[i] !== 0) {
-      divisibleArray.splice(i, 1, stringArray[k]);
+      divisibleArray.splice(i, 1, stringArray[stringArrayCounter]);
     }
   }
 }
@@ -38,7 +39,7 @@ function oneReplace() {
       }
     }
     if (oneCounter > 0) {
-      oneArray.splice(i, 1, stringArray[k]);
+      oneArray.splice(i, 1, stringArray[stringArrayCounter]);
     }
   }
 }
@@ -59,7 +60,7 @@ function zeroReplace() {
       }
     }
     if (zeroCounter > 0) {
-      zeroArray.splice(i, 1, stringArray[k]);
+      zeroArray.splice(i, 1, stringArray[stringArrayCounter]);
     }
   }
 }
@@ -69,13 +70,14 @@ function zeroReplace() {
 $(document).ready(function() {
 
   $("form#rangeInputForm").submit(function(event) {
+    debugger;
     event.preventDefault();
     var userInput = parseInt($("input#rangeInput").val());
     populateArray(userInput);
-    for (var k = 0; k < stringArray.length; k++) {
-      if (k === 0) {
+    for (var stringArrayCounter = 0; stringArrayCounter < stringArray.length; stringArrayCounter++) {
+      if (stringArrayCounter === 0) {
         divisibleReplace();
-      } else if (k===1) {
+      } else if (stringArrayCounter === 1) {
         oneReplace();
       } else{
       zeroReplace();
