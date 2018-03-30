@@ -77,8 +77,9 @@ function listPrint(arrayName, printSpan) {
 $(document).ready(function() {
 
   $("form#rangeInputForm").submit(function(event) {
-    debugger;
     event.preventDefault();
+    // next line will remove any list items added from previous execution
+    $("li").detach();
     var userInput = parseInt($("input#rangeInput").val());
     populateArray(userInput);
     arrayLength = countArray.length;
