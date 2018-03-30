@@ -91,7 +91,6 @@ $(document).ready(function() {
     event.preventDefault();
     stringArrayCounter = 0;
     userName = $("input#nameInput").val();
-    debugger;
     nameChange(userName);
     // next line will remove any list items added from previous execution
     $("li").detach();
@@ -109,10 +108,17 @@ $(document).ready(function() {
       }
       stringArrayCounter += 1;
     }
+    debugger;
     listPrint(countArray, "#arrayOutput");
     listPrint(divisibleArray, "#divisibleOutput");
     listPrint(oneArray, "#oneOutput");
     listPrint(zeroArray, ".zeroOutput");
     $(".HAL").slideDown("slow");
+  });
+  $("button.nameUpdate").click(function() {
+    $(".hello").slideToggle("slow");
+    $(".sorry").slideToggle("slow");
+    userName = "*unkownUser*";
+    nameChange(userName);
   });
 });

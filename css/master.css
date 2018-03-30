@@ -39,10 +39,15 @@ p {
   width: 87%;
 }
 
-.hideaway {
+.hideaway, .sorry {
   display: none;
 }
 
 #arrayOutput {
   text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  color: black;
 }

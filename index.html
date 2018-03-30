@@ -11,24 +11,30 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hello, <span id="userNameSpan"></span>. Let's count together, <span id="userNameSpan"></span>.</h1>
-        <h4>HAL9000 is malfunctioning again and can no longer perform simple tasks such as counting. Test HAL's functionality by entering a number to count to below.</h4>
+        <div class="hello">
+          <h1>Hello, <span id="userNameSpan"></span>. Let's count together, <span id="userNameSpan"></span>.</h1>
+          <h4>HAL9000 is malfunctioning again and can no longer perform simple tasks such as counting. Test HAL's functionality by entering a number to count to below.</h4>
+          <button class="button nameUpdate">My name isn't Dave!</button>
+        </div>
+        <h1 class="sorry">Sorry *uknownUser*, please input name in box below.</h1>
       </div>
         <form id="rangeInputForm">
+          <div class="sorry form-group">
+            <input id="nameInput" type="text" value="Dave">
+            <br><br>
+          </div>
           <div class="form-group">
+            <label class="jumbotron">Please enter the number we shall count to:</label>
             <input type="number" id="rangeInput" placeholder="ex: 5, 100">
             <br><br>
             <button type="submit" class="button">Let's count, <span id="userNameButton"></span>!</button>
-          </div>
-          <div class="form-group">
-            <input id="nameInput" type="text" value="Dave">
           </div>
         </form>
       <div class="row">
         <div class="hideaway HAL outputDiv col-md-5">
           <p>All numbers between 0 and your input:
             <br>
-            <span id="arrayOutput format"></span>
+            <span id="arrayOutput" class="format"></span>
           </p>
         </div>
         <div class="col-md-7">
