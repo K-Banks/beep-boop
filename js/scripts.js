@@ -81,19 +81,20 @@ function reverseListPrint(arrayName, printSpanName) {
 }
 
 // This will change any instance of the word "Dave" with a user submitted name
-function nameChange(name) {
-  if (name === "") {
-    name = "Dave";
+function nameChange(name1, name2) {
+  if (name1 === "") {
+    name1 = "Dave";
   }
-  stringArray[stringArrayCounter] = stringArray[stringArrayCounter].replace(userNameDefault, name);
-  $("span#userNameSpan").text(name);
-  $("span#userNameButton").text(name);
-  userNameDefault = name;
+  debugger;
+  stringArray[stringArrayCounter] = stringArray[stringArrayCounter].replace(name2, name1);
+  $("span#userNameSpan").text(name1);
+  $("span#userNameButton").text(name1);
+  userNameDefault = name1;
 }
 
 // This will limit the acceptable inputs to prevent excessive load on the system
 function numberCheck(number) {
-  if (number < 0) {
+  if (number < 0 || number === undefined) {
     alert("Error: enter a positive number");
   } else if (number >= 1500) {
     alert("Error: system overload. enter a number < 1,500");
@@ -109,7 +110,7 @@ $(document).ready(function() {
     event.preventDefault();
     stringArrayCounter = 0;
     userName = $("input#nameInput").val();
-    nameChange(userName);
+    nameChange(userName, userNameDefault);
     // next line will remove any list items added from previous execution
     $("li").detach();
     var userInput = parseInt($("input#rangeInput").val());
@@ -120,7 +121,6 @@ $(document).ready(function() {
       if ($("#reverse").is(":checked")) {
         reverseTracker = 1;
       }
-      debugger;
       populateArray(userInput);
       arrayLength = countArray.length;
       // had to use a while loop to compare variables. Unnecessary but allows for later scaling.
@@ -157,9 +157,11 @@ $(document).ready(function() {
     }
   });
   $("button.nameUpdate").click(function() {
+    $("li").detach();
+    userName = "unkownUser";
     $(".sorry").slideToggle("fast");
     $(".hello").toggle();
-    userName = "*unkownUser*";
-    nameChange(userName);
+    nameChange(userName, userNameDefault);
+    event.preventDefault();
   });
 });

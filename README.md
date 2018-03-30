@@ -27,7 +27,8 @@ _This program will display all numbers ranging between 0 and a number input by t
 
 ## Known Bugs
 
-_There are no known bugs._
+_When trying to change the name a second time, the jumbotron is not updated._
+* _console error output: "Uncaught TypeError: Cannot read property 'replace' of undefined"_
 
 ## Support and contact details
 
