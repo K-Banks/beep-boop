@@ -76,10 +76,22 @@ function listPrint(arrayName, printSpanName) {
 
 // This will change any instance of the word "Dave" with a user submitted name
 function nameChange(name) {
+  if (name === "") {
+    name = "Dave";
+  }
   stringArray[stringArrayCounter] = stringArray[stringArrayCounter].replace(userNameDefault, name);
   $("span#userNameSpan").text(name);
   $("span#userNameButton").text(name);
   userNameDefault = name;
+}
+
+// This will limit the acceptable inputs to prevent excessive load on the system
+function numberCheck(number) {
+  if (number < 0) {
+    alert("Error: enter a positive number");
+  } else if (number >= 1500) {
+    alert("Error: system overload. enter a number < 1,500");
+  }
 }
 
 
@@ -95,29 +107,33 @@ $(document).ready(function() {
     // next line will remove any list items added from previous execution
     $("li").detach();
     var userInput = parseInt($("input#rangeInput").val());
-    populateArray(userInput);
-    arrayLength = countArray.length;
-    // had to use a while loop to compare variables
-    while (stringArrayCounter < stringArray.length) {
-      if (stringArrayCounter === 0) {
-        divisibleReplace();
-      } else if (stringArrayCounter === 1) {
-        oneReplace();
-      } else {
-      zeroReplace();
+    numberCheck(userInput);
+    if (userInput >= 0 && userInput <= 1500) {
+      populateArray(userInput);
+      arrayLength = countArray.length;
+      // had to use a while loop to compare variables
+      while (stringArrayCounter < stringArray.length) {
+        if (stringArrayCounter === 0) {
+          divisibleReplace();
+        } else if (stringArrayCounter === 1) {
+          oneReplace();
+        } else {
+        zeroReplace();
+        }
+        stringArrayCounter += 1;
       }
-      stringArrayCounter += 1;
+      listPrint(countArray, "#arrayOutput");
+      listPrint(divisibleArray, "#divisibleOutput");
+      listPrint(oneArray, "#oneOutput");
+      listPrint(zeroArray, ".zeroOutput");
+      $(".HAL").slideDown("slow");
+      $(".hello").slideDown("fast");
+      $(".sorry").slideUp("fast");
     }
-    debugger;
-    listPrint(countArray, "#arrayOutput");
-    listPrint(divisibleArray, "#divisibleOutput");
-    listPrint(oneArray, "#oneOutput");
-    listPrint(zeroArray, ".zeroOutput");
-    $(".HAL").slideDown("slow");
   });
   $("button.nameUpdate").click(function() {
-    $(".hello").slideToggle("slow");
-    $(".sorry").slideToggle("slow");
+    $(".sorry").slideToggle("fast");
+    $(".hello").toggle();
     userName = "*unkownUser*";
     nameChange(userName);
   });
