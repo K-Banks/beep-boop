@@ -32,3 +32,11 @@ span {
 #rangeInput {
   width: 87%;
 }
+
+.hideaway {
+  display: none;
+}
+
+#arrayOutput {
+  text-align: center;
+}

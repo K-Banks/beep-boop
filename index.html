@@ -14,35 +14,39 @@
         <h1>Hello, Dave. Let's count together, Dave.</h1>
         <h4>HAL9000 is malfunctioning again and can no longer perform simple tasks such as counting. Test HAL's functionality by entering a number to count to below.</h4>
       </div>
-      <div class="row">
-        <div class="outputDiv col-md-3">
         <form id="rangeInputForm">
           <div class="form-group">
             <input type="number" id="rangeInput" placeholder="ex: 5, 100">
             <br><br>
-            <button type="submit" class="button-">Let's count, Dave!</button>
+            <button type="submit" class="button">Let's count, Dave!</button>
           </div>
         </form>
-        <p>Here are all numbers between 0 and your input:
+      <div class="row">
+        <div class="hideaway HAL outputDiv col-md-5">
+          <p>All numbers between 0 and your input:
+            <br>
+            <span id="arrayOutput"></span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p class="hideaway HAL">Here is Hal's /glitched/ output:
+            <br>
+            <span class="zeroOutput"></span>
+          </p>
           <br>
-          <span id="arrayOutput"></span>
-        </p>
-        <br>
-      </div>
-        <div class="col-md-9">
-          <p>Here is the array with any numbers divisible by 3 replaced with a string:
+          <p class="hideaway">Here is the array with any numbers divisible by 3 replaced with a string:
             <br>
             <span id="divisibleOutput"></span>
           </p>
           <br>
-          <p>Here is the array with any numbers containing "1" replaced with a string:
+          <p class="hideaway">Here is the array with any numbers containing "1" replaced with a string:
             <br>
             <span id="oneOutput"></span>
           </p>
           <br>
-          <p>Here is the final array output with any numbers containing a "0" replaced with a string:
+          <p class="hideaway">Here is the final array output with any numbers containing a "0" replaced with a string:
             <br>
-            <span id="zeroOutput"></span>
+            <span class="zeroOutput"></span>
           </p>
         </div>
       </div>

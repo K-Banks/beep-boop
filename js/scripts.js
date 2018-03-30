@@ -97,6 +97,7 @@ $(document).ready(function() {
     listPrint(countArray, "#arrayOutput");
     listPrint(divisibleArray, "#divisibleOutput");
     listPrint(oneArray, "#oneOutput");
-    listPrint(zeroArray, "#zeroOutput");
+    listPrint(zeroArray, ".zeroOutput");
+    $(".HAL").slideDown("slow");
   });
 });
