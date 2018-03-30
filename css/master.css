@@ -4,6 +4,10 @@
   background-color: transparent;
 }
 
+.row {
+  border-color: blue;
+}
+
 #userNameSpan {
   text-shadow: 0px 3px 3px #000, 3px 0px 3px #000, 0px -3px 3px #000, -3px 0px 3px #000;
   color: #9c160f;

@@ -116,20 +116,21 @@ $(document).ready(function() {
     numberCheck(userInput);
     if (userInput >= 0 && userInput <= 1500) {
       var reverseTracker = 0;
+      // next line uses .is() method to confirm if checkbox is checked or not
       if ($("#reverse").is(":checked")) {
         reverseTracker = 1;
       }
       debugger;
       populateArray(userInput);
       arrayLength = countArray.length;
-      // had to use a while loop to compare variables
+      // had to use a while loop to compare variables. Unnecessary but allows for later scaling.
       while (stringArrayCounter < stringArray.length) {
         if (stringArrayCounter === 0) {
           divisibleReplace();
         } else if (stringArrayCounter === 1) {
           oneReplace();
         } else {
-        zeroReplace();
+          zeroReplace();
         }
         stringArrayCounter += 1;
       }

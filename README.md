@@ -12,10 +12,11 @@ _This program will display all numbers ranging between 0 and a number input by t
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | **Return an array containing all numbers from 0 to user-defined input** | User input: "5" | Output: "[0,1,2,3,4,5]" |
+| **Return an array containing all numbers in reverse numerical order** | Input: "5" | Output: "[5,4,3,2,1,0]" |
 | **Check array for any numbers divisible by 3. Replace number with string "I'm sorry, Dave. I'm afraid I can't do that."" ** | Input: "3" | Output: "I'm sorry, Dave. I'm afraid I can't do that." |
 | **Check array for any numbers containing the digit "1" and replace number with the string: "Boop!"** | Input: "1" | Output: "Boop!" |
 | **Check array for any numbers containing the digit "0" and replace number with the string: "Beep!"** | Input: "0" | Output: "Beep!" |
-
+| **Update string with user name input** | Input: "Joe" | Output: "I'm sorry, Joe. I'm afraid I can't do that." |
 
 ## Setup/Installation Requirements
 
