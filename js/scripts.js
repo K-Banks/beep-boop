@@ -6,6 +6,8 @@ var oneArray = [];
 var zeroArray = [];
 var stringArrayCounter = 0;
 var arrayLength = 0;
+var userName = "Dave";
+var userNameDefault = "Dave";
 
 
 // Function to populate array with numbers from 0 to user input
@@ -72,12 +74,21 @@ function listPrint(arrayName, printSpanName) {
   }
 }
 
+// This will change any instance of the word "Dave" with a user submitted name
+function nameChange() {
+  userName = $("#nameInput").val();
+  stringArray[stringArrayCounter] = stringArray[stringArrayCounter].replace(userNameDefault, userName);
+  $("span#userNameSpan").text(userName);
+  userNameDefault = userName;
+}
+
 
 // User Interface Logic and DOM manipulation:
 $(document).ready(function() {
-
+  $("span#userNameSpan").text(userNameDefault);
   $("form#rangeInputForm").submit(function(event) {
     event.preventDefault();
+    nameChange();
     // next line will remove any list items added from previous execution
     $("li").detach();
     var userInput = parseInt($("input#rangeInput").val());

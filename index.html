@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/master.css">
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/master.css">
     <meta charset="utf-8">
     <title>HAL9000 Malfunctioning Number Counter</title>
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hello, Dave. Let's count together, Dave.</h1>
+        <h1>Hello, <span id="userNameSpan"></span>. Let's count together, <span id="userNameSpan"></span>.</h1>
         <h4>HAL9000 is malfunctioning again and can no longer perform simple tasks such as counting. Test HAL's functionality by entering a number to count to below.</h4>
       </div>
         <form id="rangeInputForm">
           <div class="form-group">
             <input type="number" id="rangeInput" placeholder="ex: 5, 100">
             <br><br>
-            <button type="submit" class="button">Let's count, Dave!</button>
+            <button type="submit" class="button">Let's count, <span id="userNameSpan"></span>!</button>
           </div>
           <div class="form-group">
-            <input type="text" value="Dave" placeholder="ex: Dave">
-            <button type="button" name="nameButton">This is my name!</button>
+            <input id="nameInput" type="text" value="Dave">
           </div>
         </form>
       <div class="row">
