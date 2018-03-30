@@ -65,10 +65,10 @@ function zeroReplace() {
 }
 
 // This will separate array values and output each value as a list item
-function listPrint(arrayName, printSpan) {
+function listPrint(arrayName, printSpanName) {
   for (var i = 0; i < arrayLength; i++) {
     var listAdd = arrayName.pop();
-    $(printSpan).prepend("<li>" + listAdd + "</li>");
+    $(printSpanName).prepend("<li>" + listAdd + "</li>");
   }
 }
 
@@ -84,6 +84,7 @@ $(document).ready(function() {
     populateArray(userInput);
     arrayLength = countArray.length;
     stringArrayCounter = 0;
+    // had to use a while loop to compare variables
     while (stringArrayCounter < stringArray.length) {
       if (stringArrayCounter === 0) {
         divisibleReplace();
