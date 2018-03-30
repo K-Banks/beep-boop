@@ -64,11 +64,19 @@ function zeroReplace() {
   }
 }
 
-// This will separate array values and output each value as a list item
+// This will separate array values and output each value as a list item from smallest to largest
 function listPrint(arrayName, printSpanName) {
   for (var i = 0; i < arrayLength; i++) {
     var listAdd = arrayName.pop();
     $(printSpanName).prepend("<li>" + listAdd + "</li>");
+  }
+}
+
+// This will separate array values and output each value as a list item from largest to smallest
+function reverseListPrint(arrayName, printSpanName) {
+  for (var i = 0; i < arrayLength; i++) {
+    var listAdd = arrayName.pop();
+    $(printSpanName).append("<li>" + listAdd + "</li>");
   }
 }
 
@@ -107,6 +115,11 @@ $(document).ready(function() {
     var userInput = parseInt($("input#rangeInput").val());
     numberCheck(userInput);
     if (userInput >= 0 && userInput <= 1500) {
+      var reverseTracker = 0;
+      if ($("#reverse").is(":checked")) {
+        reverseTracker = 1;
+      }
+      debugger;
       populateArray(userInput);
       arrayLength = countArray.length;
       // had to use a while loop to compare variables
@@ -120,15 +133,22 @@ $(document).ready(function() {
         }
         stringArrayCounter += 1;
       }
-      listPrint(countArray, "#arrayOutput");
-      listPrint(divisibleArray, "#divisibleOutput");
-      listPrint(oneArray, "#oneOutput");
-      listPrint(zeroArray, ".zeroOutput");
+      if (reverseTracker === 1) {
+        reverseListPrint(countArray, "#arrayOutput");
+        reverseListPrint(divisibleArray, "#divisibleOutput");
+        reverseListPrint(oneArray, "#oneOutput");
+        reverseListPrint(zeroArray, ".zeroOutput");
+      } else {
+        listPrint(countArray, "#arrayOutput");
+        listPrint(divisibleArray, "#divisibleOutput");
+        listPrint(oneArray, "#oneOutput");
+        listPrint(zeroArray, ".zeroOutput");
+      }
+      $(".vegeta").hide();
+      $(".boop").hide();
       $(".HAL").slideDown("slow");
       $(".hello").slideDown("fast");
       $(".sorry").slideUp("fast");
-      $(".vegeta").hide();
-      $(".boop").hide();
     } else if (userInput > 9000) {
       $(".vegeta").show();
     } else {
