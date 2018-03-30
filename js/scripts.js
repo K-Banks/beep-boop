@@ -5,6 +5,7 @@ var divisibleArray = [];
 var oneArray = [];
 var zeroArray = [];
 var stringArrayCounter = 0;
+var arrayLength = 0;
 
 
 // Function to populate array with numbers from 0 to user input
@@ -52,11 +53,9 @@ function zeroReplace() {
     // debugger;
     var zeroCounter = 0;
     var stringForCounter = "'" + oneArray[i] + "'";
-    console.log("stringForCounter: " + stringForCounter)
     for (var j = 0; j < stringForCounter.length; j++) {
       if (parseInt(stringForCounter[j]) === 0) {
         zeroCounter ++;
-        console.log("counter: " + zeroCounter)
       }
     }
     if (zeroCounter > 0) {
@@ -67,7 +66,6 @@ function zeroReplace() {
 
 // This will separate array values and output each value as a list item
 function listPrint(arrayName, printSpan) {
-  var arrayLength = arrayName.length
   for (var i = 0; i < arrayLength; i++) {
     var listAdd = arrayName.pop();
     $(printSpan).prepend("<li>" + listAdd + "</li>");
@@ -83,7 +81,9 @@ $(document).ready(function() {
     event.preventDefault();
     var userInput = parseInt($("input#rangeInput").val());
     populateArray(userInput);
-    for (var stringArrayCounter = 0; stringArrayCounter < stringArray.length; stringArrayCounter++) {
+    arrayLength = countArray.length;
+    stringArrayCounter = 0;
+    while (stringArrayCounter < stringArray.length) {
       if (stringArrayCounter === 0) {
         divisibleReplace();
       } else if (stringArrayCounter === 1) {
@@ -91,11 +91,11 @@ $(document).ready(function() {
       } else {
       zeroReplace();
       }
+      stringArrayCounter += 1;
     }
     listPrint(countArray, "#arrayOutput");
-    $("#divisibleOutput").text(divisibleArray);
-    $("#oneOutput").text(oneArray);
-    $("#zeroOutput").text(zeroArray);
+    listPrint(divisibleArray, "#divisibleOutput");
+    listPrint(oneArray, "#oneOutput");
+    listPrint(zeroArray, "#zeroOutput");
   });
-
 });
