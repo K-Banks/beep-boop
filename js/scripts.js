@@ -3,6 +3,7 @@ var stringArray = ["I'm sorry, Dave. I'm afraid I can't do that.", "Boop!", "Bee
 var countArray = [];
 var divisibleArray = [];
 var oneArray = [];
+var zeroArray = [];
 
 
 // Function to populate array with numbers from 0 to user input
@@ -42,6 +43,26 @@ function oneReplace() {
   }
 }
 
+// Function to replace any numbers containing digit "0" w/ a string from stringArray
+function zeroReplace() {
+  zeroArray = oneArray.slice();
+  for (var i = 0; i < oneArray.length; i++) {
+    // this sub-loop will check if a number contains the digit "0"
+    // debugger;
+    var zeroCounter = 0;
+    var stringForCounter = "'" + oneArray[i] + "'";
+    console.log("stringForCounter: " + stringForCounter)
+    for (var j = 0; j < stringForCounter.length; j++) {
+      if (parseInt(stringForCounter[j]) === 0) {
+        zeroCounter ++;
+        console.log("counter: " + zeroCounter)
+      }
+    }
+    if (zeroCounter > 0) {
+      zeroArray.splice(i, 1, stringArray[2]);
+    }
+  }
+}
 
 
 // User Interface Logic and DOM manipulation:
@@ -51,11 +72,19 @@ $(document).ready(function() {
     event.preventDefault();
     var userInput = parseInt($("input#rangeInput").val());
     populateArray(userInput);
+    for (var k = 0; k < stringArray.length; k++) {
+      if (k === 0) {
+        divisibleReplace();
+      } else if (k===1) {
+        oneReplace();
+      } else{
+      zeroReplace();
+      }
+    }
     $("#arrayOutput").text(countArray);
-    divisibleReplace();
     $("#divisibleOutput").text(divisibleArray);
-    oneReplace();
     $("#oneOutput").text(oneArray);
+    $("#zeroOutput").text(zeroArray);
   });
 
 });
