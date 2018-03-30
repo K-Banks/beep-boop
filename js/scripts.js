@@ -65,6 +65,15 @@ function zeroReplace() {
   }
 }
 
+// This will separate array values and output each value as a list item
+function listPrint(arrayName, printSpan) {
+  var arrayLength = arrayName.length
+  for (var i = 0; i < arrayLength; i++) {
+    var listAdd = arrayName.pop();
+    $(printSpan).prepend("<li>" + listAdd + "</li>");
+  }
+}
+
 
 // User Interface Logic and DOM manipulation:
 $(document).ready(function() {
@@ -83,7 +92,7 @@ $(document).ready(function() {
       zeroReplace();
       }
     }
-    $("#arrayOutput").text(countArray);
+    listPrint(countArray, "#arrayOutput");
     $("#divisibleOutput").text(divisibleArray);
     $("#oneOutput").text(oneArray);
     $("#zeroOutput").text(zeroArray);
