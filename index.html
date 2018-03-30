@@ -9,6 +9,33 @@
     <title>HAL9000 Malfunctioning Number Counter</title>
   </head>
   <body>
-
+    <div class="container">
+      <form id="rangeInputForm">
+        <div class="form-group">
+          <input type="number" id="rangeInput" placeholder="ex: 5, 700, 46783">
+          <button type="submit" class="button">Show me the numbers!</button>
+        </div>
+      </form>
+      <div class="outputDiv">
+        <p>Here are all numbers between 0 and your input:
+          <br>
+          <span id="arrayOutput"></span>
+        </p>
+        <br>
+        <p>Here is the array with any numbers divisible by 3 replaced with a string:
+          <br>
+          <span id="divisibleOutput"></span>
+        </p>
+        <br>
+        <p>Here is the array with any numbers containing "1" replaced with a string:
+          <br>
+          <span id="oneOutput"></span>
+        </p>
+        <p>Here is the final array output with any numbers containing a "0" replaced with a string:
+          <br>
+          <span id="zeroOutput"></span>
+        </p>
+      </div>
+    </div>
   </body>
 </html>
