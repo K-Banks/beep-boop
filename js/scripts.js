@@ -75,26 +75,29 @@ function listPrint(arrayName, printSpanName) {
 }
 
 // This will change any instance of the word "Dave" with a user submitted name
-function nameChange() {
-  userName = $("#nameInput").val();
-  stringArray[stringArrayCounter] = stringArray[stringArrayCounter].replace(userNameDefault, userName);
-  $("span#userNameSpan").text(userName);
-  userNameDefault = userName;
+function nameChange(name) {
+  stringArray[stringArrayCounter] = stringArray[stringArrayCounter].replace(userNameDefault, name);
+  $("span#userNameSpan").text(name);
+  $("span#userNameButton").text(name);
+  userNameDefault = name;
 }
 
 
 // User Interface Logic and DOM manipulation:
 $(document).ready(function() {
   $("span#userNameSpan").text(userNameDefault);
+  $("span#userNameButton").text(userNameDefault);
   $("form#rangeInputForm").submit(function(event) {
     event.preventDefault();
-    nameChange();
+    stringArrayCounter = 0;
+    userName = $("input#nameInput").val();
+    debugger;
+    nameChange(userName);
     // next line will remove any list items added from previous execution
     $("li").detach();
     var userInput = parseInt($("input#rangeInput").val());
     populateArray(userInput);
     arrayLength = countArray.length;
-    stringArrayCounter = 0;
     // had to use a while loop to compare variables
     while (stringArrayCounter < stringArray.length) {
       if (stringArrayCounter === 0) {

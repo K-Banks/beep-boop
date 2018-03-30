@@ -4,6 +4,12 @@
   background-color: transparent;
 }
 
+#userNameSpan {
+  text-shadow: 0px 3px 3px #000, 3px 0px 3px #000, 0px -3px 3px #000, -3px 0px 3px #000;
+  color: #9c160f;
+  background-color: transparent;
+}
+
 body {
   background-color: #242424;
 }
@@ -19,7 +25,7 @@ p {
   font-size: 1.5em;
 }
 
-span {
+.format {
   background-color: #000;
   text-shadow: none;
   color: white;
