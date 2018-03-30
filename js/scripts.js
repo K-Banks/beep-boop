@@ -19,7 +19,7 @@ function divisibleReplace() {
   divisibleArray = countArray.slice();
   for (var i = 0; i < divisibleArray.length; i++) {
     if (countArray[i]%3 === 0 && countArray[i] !== 0) {
-      divisibleArray.splice(i, 1, stringArray[0]);
+      divisibleArray.splice(i, 1, stringArray[k]);
     }
   }
 }
@@ -38,7 +38,7 @@ function oneReplace() {
       }
     }
     if (oneCounter > 0) {
-      oneArray.splice(i, 1, stringArray[1]);
+      oneArray.splice(i, 1, stringArray[k]);
     }
   }
 }
@@ -59,7 +59,7 @@ function zeroReplace() {
       }
     }
     if (zeroCounter > 0) {
-      zeroArray.splice(i, 1, stringArray[2]);
+      zeroArray.splice(i, 1, stringArray[k]);
     }
   }
 }
