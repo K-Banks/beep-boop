@@ -28,19 +28,16 @@ function oneReplace() {
   oneArray = divisibleArray.slice();
   for (var i = 0; i < oneArray.length; i++) {
     // this sub-loop will check if a number contains the digit "1"
-    debugger;
+    // debugger;
     var oneCounter = 0;
-    var stringForCounter = oneArray[i];
-    console.log(stringForCounter);
-    for (var j = 0; j < i; j++) {
-      if (stringForCounter === 1) {
+    var stringForCounter = "'" + oneArray[i] + "'";
+    for (var j = 0; j < stringForCounter.length; j++) {
+      if (parseInt(stringForCounter[j]) === 1) {
         oneCounter ++;
-        console.log(oneCounter);
       }
     }
     if (oneCounter > 0) {
       oneArray.splice(i, 1, stringArray[1]);
-      console.log("found a number containing 1");
     }
   }
 }
