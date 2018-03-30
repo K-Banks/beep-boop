@@ -79,7 +79,7 @@ $(document).ready(function() {
         divisibleReplace();
       } else if (stringArrayCounter === 1) {
         oneReplace();
-      } else{
+      } else {
       zeroReplace();
       }
     }
